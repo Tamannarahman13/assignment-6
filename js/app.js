@@ -27,7 +27,7 @@ const displayCategorys = categorys => {
 
 
 const loadCategoryDetails = async (category_id) => {
-
+    toggleSpinner(true)
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     const res = await fetch(url);
     const data = await res.json();
@@ -41,7 +41,7 @@ const displayCategoryDetails = (categorysDetails) => {
     const catagoryDetails = document.getElementById('category-details-container');
     catagoryDetails.innerText = ''
     categorysDetails.forEach(categoryDetails => {
-        toggleSpinner(true)
+
         const categoryDetailDiv = document.createElement('div');
         categoryDetailDiv.classList.add('card')
 
@@ -72,7 +72,7 @@ const displayCategoryDetails = (categorysDetails) => {
     })
 
     // stop loader
-
+    toggleSpinner(false)
 
     // console.log(category)
 }
@@ -83,7 +83,7 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.remove('d-none')
     }
     else {
-
+        loaderSection.classList.add('d-none')
     }
 }
 
