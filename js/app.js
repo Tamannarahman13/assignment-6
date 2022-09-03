@@ -6,6 +6,7 @@ const categoryLoad = async () => {
 }
 
 const displayCategorys = categorys => {
+
     const categorysContainer = document.getElementById('catagorys-container');
     categorys.forEach(category => {
         const categoryDiv = document.createElement('div');
@@ -26,6 +27,7 @@ const displayCategorys = categorys => {
 
 
 const loadCategoryDetails = async (category_id) => {
+
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     const res = await fetch(url);
     const data = await res.json();
@@ -35,11 +37,14 @@ const loadCategoryDetails = async (category_id) => {
 }
 
 const displayCategoryDetails = (categorysDetails) => {
+
     const catagoryDetails = document.getElementById('category-details-container');
     catagoryDetails.innerText = ''
     categorysDetails.forEach(categoryDetails => {
+        toggleSpinner(true)
         const categoryDetailDiv = document.createElement('div');
         categoryDetailDiv.classList.add('card')
+
         categoryDetailDiv.innerHTML = `
         
   <img src=${categoryDetails.thumbnail_url} class="card-img-top h-50 w-full" alt="...">
@@ -54,7 +59,7 @@ const displayCategoryDetails = (categorysDetails) => {
     </div>
     <p class = "me-5">${categoryDetails.rating.number}</p>
     <div>
-    <button onclick = "loadNewsDetails('${categoryDetails._id}')" class = "border-0" data-bs-toggle="modal" data-bs-target="#newsDetailModal">more..</button>
+    <button  onclick = "loadNewsDetails('${categoryDetails._id}')" class = "border-0" data-bs-toggle="modal" data-bs-target="#newsDetailModal">more..</button>
     </div>
     </div>
     
@@ -66,7 +71,20 @@ const displayCategoryDetails = (categorysDetails) => {
         catagoryDetails.appendChild(categoryDetailDiv)
     })
 
+    // stop loader
+
+
     // console.log(category)
+}
+
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none')
+    }
+    else {
+
+    }
 }
 
 
