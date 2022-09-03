@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+
+<body>
+    <h2>1.Different var, let, const-</h2>
+    <p>let: The let keyword declares a block-scoped local variable, optionally initializing it to a value.
+        Block-scoped means that the variable is only available within the block it was declared in, which is usually
+        denoted by curly braces {}.</p>
+    <p>var: The var keyword declares a function-scoped or global variable, optionally initializing it to a value.
+        Function-scoped means that the variable is only available within the function it was declared in. Global
+        variables are available throughout your entire code.</p>
+    <p>const: The const keyword declares a block-scoped, immutable constant variable, i.e. a variable that can’t be
+        reassigned.
+        Constants are also called “immutable variables”, but that’s a bit of a misnomer since they are actually
+        variables – just ones that can’t be reassigned.</p>
+
+    <h2> Arrow function vs regular function</h2>
+    <p>Regular Function:Inside of a regular JavaScript function, this value (aka the execution context) is dynamic.
+
+        The dynamic context means that the value of this depends on how the function is invoked. In JavaScript, there
+        are 4 ways you can invoke a regular function.</p>
+    <p>As seen in the previous section, the regular function can easily construct objects.</p>
+    <p>Inside the body of a regular function, arguments is a special array-like object containing the list of arguments
+        with which the function has been invoked.</p><br>
+    <p>Arrow Function: The behavior of this inside of an arrow function differs considerably from the regular function's
+        this behavior. The arrow function doesn't define its own execution context.</p>
+    <p>A consequence of this resolved lexically is that an arrow function cannot be used as a constructor.</p>
+    <p>On the other side, no arguments special keyword is defined inside an arrow function.</p>
+
+</body>
+
+</html>
