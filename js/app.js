@@ -11,9 +11,11 @@ const displayCategorys = categorys => {
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
         <div  class="col ms-5">
-        <p>
+        <a onclick = "loadCategoryDetails('${category.category_id}')">
         ${category.category_name}
-        </p>
+        </a>
+       
+       
         </div>
 
 
@@ -23,11 +25,16 @@ const displayCategorys = categorys => {
 }
 
 
-const loadCategoryDetails = async id => {
-    const url = `https://openapi.programming-hero.com/api/news/category/${id}`
+const loadCategoryDetails = async (category_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data.news_category[0])
+    displayCategoryDetails(data.data[0])
+
+}
+
+const displayCategoryDetails = (category) => {
+    console.log(category)
 }
 
 categoryLoad()
